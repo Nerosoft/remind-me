@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffffff"
+    android:fitsSystemWindows="true"
+    android:layoutDirection="ltr"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/login_photo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="5dp"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp"
+                android:src="@drawable/boy" />
+            <ImageView
+                android:onClick="setImage"
+                android:layout_gravity="bottom|right"
+                android:src="@android:drawable/ic_menu_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/input_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/user_email"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/coconnextarabic_light"
+                    android:hint="@string/hint_name"
+                    android:inputType="text"
+                    android:textColor="@color/text_color"
+                    android:textStyle="bold" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/input_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/pad_lock"
+                    android:drawablePadding="10dp"
+                    android:inputType="textPassword"
+                    android:textStyle="bold" />
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- Gender Label -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/input_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:fontFamily="@font/coconnextarabic_light"
+                    android:text="@string/text_gender"
+                    android:textColor="@color/text_color"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:tag="male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="setGender"
+                        android:fontFamily="@font/coconnextarabic_light"
+                        android:text="Male" />
+
+                    <RadioButton
+                        android:tag="female"
+                        android:onClick="setGender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/coconnextarabic_light"
+                        android:text="Female" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <!-- Number Label -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/input_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/phone"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/coconnextarabic_light"
+                    android:hint="@string/hint_number"
+                    android:inputType="number"
+                    android:textColor="@color/text_color"
+                    android:textStyle="bold" />
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- Birthday Label -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/input_birthday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/gift"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/coconnextarabic_light"
+                    android:hint="@string/hint_birthday"
+                    android:inputType="datetime"
+                    android:onClick="setDate"
+                    android:textColor="@color/text_color"
+                    android:textStyle="bold" />
+            </android.support.design.widget.TextInputLayout>
+
+            <!-- Key Label -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/input_key"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/key"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/coconnextarabic_light"
+                    android:hint="@string/hint_key"
+                    android:inputType="datetime"
+                    android:textColor="@color/text_color"
+                    android:textStyle="bold" />
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="13dp">
+
+            <android.support.v7.widget.AppCompatButton
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:onClick="createAccount"
+                android:background="@color/colorPrimary"
+                android:fontFamily="@font/coconnextarabic_light"
+                android:text="@string/but_create_account"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
+
