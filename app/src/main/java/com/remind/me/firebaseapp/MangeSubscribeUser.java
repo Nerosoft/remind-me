@@ -1,7 +1,7 @@
 package com.remind.me.firebaseapp;
 
 import android.content.Context;
-import android.widget.Toast;
+
 
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -10,8 +10,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import static com.remind.me.firebaseapp.RM_Login.fireIDData;
+
 
 /**
  * Created by nero on 02/08/18.
@@ -25,7 +25,7 @@ public class MangeSubscribeUser {
     public JSONArray jsonArraySubUser;
 
     public MangeSubscribeUser(String username, Context context) {
-        this.fireRef = new Firebase("https://yourfirebase/subscribe");
+        this.fireRef = new Firebase("https://"+fireIDData+".firebaseio.com/subscribe");
         this.context = context;
         this.userName = username;
         subscribeUser = this;
@@ -38,7 +38,7 @@ public class MangeSubscribeUser {
 
 
     public void setUpSubscribeUser(final OnSuccessListener<JSONArray> successListener) {
-        new Firebase("https://yourfirebase/subscribe")
+        new Firebase("https://"+fireIDData+".firebaseio.com/subscribe")
                 .addValueEventListener(new com.firebase.client.ValueEventListener() {
             @Override
             public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {

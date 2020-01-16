@@ -2,33 +2,27 @@ package com.remind.me.firebaseapp;
 
 
 import android.content.Intent;
-import android.graphics.BitmapFactory;
+
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.Toolbar;
-import android.util.Base64;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import de.hdodenhof.circleimageview.CircleImageView;
+
+
 
 public class RM_Login extends AppCompatActivity {
 
+    static String fireIDData="remind33-e6481";
     RM_SharedPreference preference;
     private EditText Name, Password;
 
@@ -76,7 +70,7 @@ public class RM_Login extends AppCompatActivity {
                             final EditText name, final EditText password) {
         final ProgressDialog dialog= new ProgressDialog();
             dialog .show(getFragmentManager(),"");
-        new Firebase("https://yourfirebase/user").
+        new Firebase("https://"+fireIDData+".firebaseio.com/user").
                 addValueEventListener(new com.firebase.client.ValueEventListener() {
                     @Override
                     public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
@@ -188,7 +182,7 @@ public class RM_Login extends AppCompatActivity {
                 final String user = dialogRestPass.option.getText().toString();
 
 
-                new Firebase("https://yourfirebase/user")
+                new Firebase("https://"+fireIDData+".firebaseio.com/user")
                         .addValueEventListener(new com.firebase.client.ValueEventListener() {
                             @Override
                             public void onDataChange(final com.firebase.client.DataSnapshot dataSnapshot) {

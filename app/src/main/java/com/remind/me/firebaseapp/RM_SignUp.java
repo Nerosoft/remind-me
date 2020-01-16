@@ -40,6 +40,9 @@ import java.util.Calendar;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static com.remind.me.firebaseapp.RM_Login.fireIDData;
+
+
 public class RM_SignUp extends AppCompatActivity {
 
     private RM_SharedPreference preference;
@@ -56,7 +59,7 @@ public class RM_SignUp extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         preference = new RM_SharedPreference(this);
-        fireRef = new Firebase("https://yourfirebase/");
+        fireRef = new Firebase("https://"+fireIDData+".firebaseio.com/");
         this.setupView();
     }
 
@@ -65,7 +68,7 @@ public class RM_SignUp extends AppCompatActivity {
         new DatePickerDialog(RM_SignUp.this, R.style.DialogTheme, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                editText.setText(i + "-" + i1 + "-" + i2);
+                editText.setText(i + "-" + ++i1 + "-" + i2);
             }
         }, Calendar.getInstance().get(Calendar.YEAR),
                 Calendar.getInstance().get(Calendar.MONTH),
@@ -282,7 +285,7 @@ public class RM_SignUp extends AppCompatActivity {
     }
 
     void uploadUserPhoto(String UserName, OnSuccessListener successListener) {
-        FirebaseStorage storage = FirebaseStorage.getInstance("gs://yourfirebase.appspot.com");
+        FirebaseStorage storage = FirebaseStorage.getInstance("gs://"+fireIDData+".appspot.com/");
         StorageReference storageRef = storage.getReference();
         StorageReference mountainImagesRef = storageRef.child("user_photo/" + UserName + ".jpg");
         BitmapDrawable bitmapDrawable = (BitmapDrawable) Login_Photo.getDrawable();

@@ -22,10 +22,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
+
 import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static com.remind.me.firebaseapp.RM_Login.fireIDData;
+
 
 /**
  * Created by nero on 23/07/18.
@@ -136,7 +139,7 @@ public class RM_SharedPreference {
     }
 
     public static void loadUserPhoto(String UserName, OnSuccessListener<byte[]> successListener){
-        FirebaseStorage storage = FirebaseStorage.getInstance("gs://yourfirebase.appspot.com");
+        FirebaseStorage storage = FirebaseStorage.getInstance("gs://"+fireIDData+".appspot.com/");
         StorageReference storageRef = storage.getReference();
         StorageReference islandRef = storageRef.child("user_photo/"+UserName+".jpg");
 

@@ -54,8 +54,11 @@ import java.util.Map;
 import de.hdodenhof.circleimageview.CircleImageView;
 import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
 
+import static com.remind.me.firebaseapp.RM_Login.fireIDData;
+
 public class RM_MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
 
     RM_SharedPreference preference;
     RM_User UserLogin;
@@ -145,7 +148,7 @@ public class RM_MainActivity extends AppCompatActivity
                         final String userName = jsonArraySubUser.getString(i);
 
                         DatabaseReference mDatabase = FirebaseDatabase.
-                                getInstance("https://yourfirebase").getReference();
+                                getInstance("https://"+fireIDData+".firebaseio.com").getReference();
                         Query lastQuery = mDatabase.child("UserPost").child(userName).limitToLast(1);
                         lastQuery.addListenerForSingleValueEvent(new ValueEventListener() {
 
@@ -427,7 +430,7 @@ public class RM_MainActivity extends AppCompatActivity
     }
 
     void getUserFromFirebase() {
-        new Firebase("https://yourfirebase/user").
+        new Firebase("https://"+fireIDData+".firebaseio.com/user").
                 addValueEventListener(new com.firebase.client.ValueEventListener() {
                     @Override
                     public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {

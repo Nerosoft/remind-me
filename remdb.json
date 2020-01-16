@@ -1,0 +1,26 @@
+{
+  "UserPost" : {
+    "abdogmal" : {
+      "-LJFL86-0Z80wcPCZpwL" : {
+        "text" : "الحمد لله حتي يبلغ الحمد منتهاه",
+        "time" : "Mon, 6 Aug 2018, 19:46"
+      }
+    }
+  },
+  "subscribe" : {
+    "abdogmal" : {
+      "subCount" : "2",
+      "subUser" : "[\"abdogmal\",\"osamaelwakel\"]"
+    }
+  },
+  "user" : {
+    "abdogmal" : {
+      "birthday" : "1995-2-10",
+      "gender" : "male",
+      "key" : "12345",
+      "name" : "abdogmal",
+      "number" : "01204299614",
+      "password" : "asdfghj"
+    }
+  }
+}

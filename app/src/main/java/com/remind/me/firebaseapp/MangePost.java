@@ -22,9 +22,11 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Stack;
+
 
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static com.remind.me.firebaseapp.RM_Login.fireIDData;
 
 /**
  * Created by nero on 28/07/18.
@@ -39,7 +41,7 @@ public class MangePost {
 
     public  MangePost (String username, Context context){
             this.userName=username;
-            this.fireRef = new Firebase("https://yourfirebase/UserPost/"+this.userName);
+            this.fireRef = new Firebase("https://"+fireIDData+".firebaseio.com/UserPost/"+this.userName);
             this.context=context;
             this.userPosts=new ArrayList<>();
             mangePost=this;
